@@ -4,6 +4,7 @@
  */
 
 package assignment2;
+
 import java.util.*;
 
 public class BaseDecisionTreeTester {
@@ -19,6 +20,7 @@ public class BaseDecisionTreeTester {
      */
 	
 	public static void main( String [] args ) {
+		
     BaseDecisionTree.nClasses = 2;
     BaseDecisionTree.dim = 3;
     

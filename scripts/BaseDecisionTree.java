@@ -1,8 +1,7 @@
-﻿
 /**
- * Basic code for assignment 2 - F2020
- * @author Sadeghi F, Safaa Bedawi
- */
+  * Basic code for assignment 2 - F2020
+  * @author Sadeghi F, Safaa Bedawi
+*/
 
 package assignment2;
 
@@ -101,7 +100,9 @@ public class BaseDecisionTree {
    public int[] CalcProb(String inputFeatureWLabel) {  	
    /*
     *       write your code here.
-   */   
+   */
+	int[] myList = {1, 2, 3, 4};
+	return myList;   
     }
 
 
@@ -165,8 +166,8 @@ public class BaseDecisionTree {
     public int[] CalcAccuracy(String inputFeatureWLabel) {
 
     //   write your code here.
- 
-
+	int[] myList = {1, 2, 3, 4}; 
+	return myList;
     }
 
 
