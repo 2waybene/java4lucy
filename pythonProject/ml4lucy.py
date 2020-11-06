@@ -8,14 +8,40 @@ from sklearn import metrics
 from sklearn.metrics import confusion_matrix
 from matplotlib.colors import ListedColormap
 
+def q1(fileIN):
+    dat= pd.read_csv(fileIN)
+    surved = dat[dat['Survived/Not'] == 1]
+    male =   dat[dat['gender'] == 1]
+
+    print ("There are totally " + str(dat.shape[0]) + " entries")
+    print ("There are totally " + str(surved.shape[0] ) + " survived.")
+    print ("There are totally " + str(male.shape[0] ) + " male passengers.")
+    print ("There are totally " + str(dat.shape[0] - male.shape[0] ) + " female passengers.")
+
+def q2(fileIN):
+    dat= pd.read_csv(fileIN)
+    surved = dat[dat['Survived'] == 1]
+    male =   dat[dat['Sex'] == 'male']
+
+    print ("There are totally " + str(dat.shape[0]) + " entries")
+    print ("There are totally " + str(surved.shape[0] ) + " survived.")
+    print ("There are totally " + str(male.shape[0] ) + " male passengers.")
+    print ("There are totally " + str(dat.shape[0] - male.shape[0] ) + " female passengers.")
+
 def main():
     data = pd.read_csv('/Users/jyli/myGit/java4lucy/data/input.txt')
+
  #   print(data.head())
    # decisionTree(data)
 
 ##  test female survival rate
     dFemale = data.copy()
     dFemale = dFemale[dFemale['gender'] == 0]
+
+    dFemale = dFemale[dFemale['Age']<9]
+    #print(d2.head())
+
+    dFemale = dFemale[dFemale['Sibling']<2.9]
  #   print (dFemale)
     surv = dFemale['Survived/Not']
  #   print(type(surv))
@@ -30,8 +56,8 @@ def main():
 
 
 
-    d2 = d2[d2['gender']==0]
-    #d2 = d2[d2['gender']==1]
+    #d2 = d2[d2['gender']==0]
+    d2 = d2[d2['gender']==1]
     #print(d2.head())
 
     d2 = d2[d2['Age']<9]
@@ -45,7 +71,7 @@ def main():
     #print(type(surv))
 
     asn = surv.to_numpy()
-
+    #print (asn)
     print("proportion is: " + str(asn.sum()/asn.size))
 
 
@@ -54,8 +80,8 @@ def main():
    # print(data['gender'].head())
 
 
-def decisionTree ():
-    dt = pd.read_csv('/Users/jyli/myGit/java4lucy/data/input.txt')
+def decisionTree (dataIN, dataTest):
+    dt = pd.read_csv(dataIN)
     feature_cols = ['gender',  'Age' , 'SiblingAge']
     X = dt.iloc[:,[0,1,2]].values
     y = dt.iloc[:,3].values
@@ -87,7 +113,7 @@ def decisionTree ():
 
 
     ##  test on the know data
-    dt2 = pd.read_csv('/Users/jyli/myGit/java4lucy/data/output.txt')
+    dt2 = pd.read_csv(dataTest)
     feature_cols = ['gender',  'Age' , 'SiblingAge']
     X2 = dt2.iloc[:,[0,1,2]].values
     y2 = dt2.iloc[:,3].values
@@ -107,5 +133,10 @@ def decisionTree ():
 
 
 if __name__ == '__main__':
-    main()
-    decisionTree ()
+  #  print("This is our homework problem\n")
+  #  q1('/Users/jyli/myGit/java4lucy/data/input.txt')
+   # print("\n\nThis is the original data from kaggle\n")
+   # q2('/Users/jyli/myGit/java4lucy/data/train.csv')
+  #  main()
+    decisionTree ("/Users/jyli/myGit/java4lucy/data/input.txt", "/Users/jyli/myGit/java4lucy/data/output.txt")
+
