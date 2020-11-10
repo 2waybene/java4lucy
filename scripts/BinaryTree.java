@@ -1,4 +1,4 @@
-//package ml4lucy;
+package ml4lucy;
 
 import java.util.Stack;
 

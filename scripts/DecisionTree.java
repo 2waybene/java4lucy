@@ -98,7 +98,7 @@ class DecisionTree {
 			"(id = " + currentNode.yesBranch.nodeID +
 			") linked to yes branch of node " +
 			existingNodeID);
-		currentNode.yesBranch = new BinTree(newNodeID,newQuestAns);
+	        currentNode.yesBranch = new BinTree(newNodeID,newQuestAns);
 		}		
  	    return(true);
 	    }
